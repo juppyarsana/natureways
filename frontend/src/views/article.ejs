@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= article.title %> — NatureWays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <%- include('partials/nav', { siteSettings: siteSettings }) %>
+
+  <article class="section" style="padding-top: 160px;">
+    <div class="container container--narrow">
+      <div class="article-header reveal">
+        <% if (article.pillar) { %>
+          <a href="/<%= article.pillar.slug %>" class="label">&larr; <%= article.pillar.name %></a>
+        <% } %>
+        <h1 class="serif-lg article-header__title"><%= article.title %></h1>
+        <div class="article-card__meta">
+          <% if (article.pillar) { %>
+            <span class="article-card__category"><%= article.pillar.name %></span>
+            <span class="article-card__dot"></span>
+          <% } %>
+          <% if (article.subcategory) { %>
+            <span class="article-card__category"><%= article.subcategory.name %></span>
+            <span class="article-card__dot"></span>
+          <% } %>
+          <% if (article.publishDate) { %>
+            <span class="article-card__date"><%= new Date(article.publishDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) %></span>
+          <% } %>
+          <% if (article.author) { %>
+            <span class="article-card__dot"></span>
+            <span class="article-card__date"><%= article.author %></span>
+          <% } %>
+        </div>
+      </div>
+
+      <% if (article.coverImage) { %>
+        <div class="article-cover reveal">
+          <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage.alternativeText || '' %>" />
+        </div>
+      <% } %>
+
+      <div class="article-body reveal">
+        <%- bodyHtml %>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <%- include('partials/footer', { siteSettings: siteSettings }) %>
+
+  <!-- ── Scripts ────────────────────────────── -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

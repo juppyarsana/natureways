@@ -45,9 +45,36 @@ function getSiteSettings() {
   return strapiFetch(`/api/site-setting?${SITE_SETTINGS_POPULATE}`);
 }
 
+const ARTICLE_POPULATE = 'populate[coverImage]=true&populate[pillar]=true&populate[subcategory]=true';
+
+function getArticleBySlug(slug) {
+  return strapiFetch(`/api/articles?filters[slug][$eq]=${encodeURIComponent(slug)}&${ARTICLE_POPULATE}`).then(
+    (list) => list[0]
+  );
+}
+
+function getPillarBySlug(slug) {
+  return strapiFetch(
+    `/api/pillars?filters[slug][$eq]=${encodeURIComponent(slug)}&populate[heroImage]=true`
+  ).then((list) => list[0]);
+}
+
+function getArticlesByPillar(pillarSlug) {
+  return strapiFetch(
+    `/api/articles?filters[pillar][slug][$eq]=${encodeURIComponent(pillarSlug)}&${ARTICLE_POPULATE}&sort=publishDate:desc&pagination[pageSize]=100`
+  );
+}
+
 function mediaUrl(media) {
   if (!media || !media.url) return '';
   return media.url.startsWith('http') ? media.url : `${STRAPI_PUBLIC_URL}${media.url}`;
 }
 
-module.exports = { getHomepage, getSiteSettings, mediaUrl };
+module.exports = {
+  getHomepage,
+  getSiteSettings,
+  getArticleBySlug,
+  getPillarBySlug,
+  getArticlesByPillar,
+  mediaUrl,
+};

@@ -560,6 +560,85 @@
       color: var(--olive);
     }
 
+    /* ── Article detail page ─────────────────────── */
+    .article-header {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .article-header__title {
+      max-width: 760px;
+    }
+
+    .article-cover {
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      margin-bottom: 48px;
+    }
+
+    .article-cover img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.9);
+    }
+
+    .article-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--forest);
+      max-width: 680px;
+    }
+
+    .article-body p {
+      margin-bottom: 24px;
+    }
+
+    .article-body h2 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--deep-pine);
+      margin: 40px 0 20px;
+    }
+
+    .article-body h3 {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--deep-pine);
+      margin: 32px 0 16px;
+    }
+
+    .article-body a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ── Pillar landing page ──────────────────────── */
+    .pillar-hero {
+      padding: 160px 0 100px;
+    }
+
+    .pillar-hero__image {
+      overflow: hidden;
+      aspect-ratio: 21/9;
+      margin-bottom: 48px;
+    }
+
+    .pillar-hero__image img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.9);
+    }
+
+    .pillar-hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     /* ── Philosophy / Quote ───────────────────────── */
     .philosophy {
       text-align: center;

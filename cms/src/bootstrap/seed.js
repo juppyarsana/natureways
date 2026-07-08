@@ -159,23 +159,20 @@ async function seed(strapi) {
       siteName: 'NatureWays',
       tagline: 'Journeys That Realign',
       navLinks: [
-        // Food/Space/Nature/Workshop don't have dedicated pages yet, so they
-        // scroll to the homepage's pillars section instead of a per-topic
-        // anchor -- see DEPLOY.md/CLAUDE.md "not built yet" for the real pages.
-        { label: 'Food', url: '#pillars' },
-        { label: 'Space', url: '#pillars' },
-        { label: 'Nature', url: '#pillars' },
-        { label: 'Workshop', url: '#pillars' },
+        { label: 'Food', url: '/food' },
+        { label: 'Space', url: '/space' },
+        { label: 'Nature', url: '/nature' },
+        { label: 'Workshop', url: '/workshop' },
         { label: 'About', url: '#about' },
         { label: 'Contact', url: '#contact' },
       ],
       footerBrandDesc:
         'A sanctuary for those who seek to live more closely with the rhythms of the natural world.',
       footerExploreLinks: [
-        { label: 'Food', url: '#' },
-        { label: 'Space', url: '#' },
-        { label: 'Nature', url: '#' },
-        { label: 'Workshop', url: '#' },
+        { label: 'Food', url: '/food' },
+        { label: 'Space', url: '/space' },
+        { label: 'Nature', url: '/nature' },
+        { label: 'Workshop', url: '/workshop' },
       ],
       footerAboutLinks: [
         { label: 'Our Philosophy', url: '#' },
@@ -218,7 +215,7 @@ async function seed(strapi) {
       heroBody:
         'NatureWays is a sanctuary for those seeking to slow down, reconnect, and rediscover the quiet intelligence of the natural world.',
       heroCtaLabel: 'Explore our world',
-      heroCtaLink: '#nature',
+      heroCtaLink: '/nature',
       tickerItems: [
         { label: 'Forest Bathing' },
         { label: 'Slow Travel' },
@@ -230,10 +227,10 @@ async function seed(strapi) {
         { label: 'Environmental Psychology' },
       ],
       pillars: [
-        { number: '01', title: 'Food', image: pillarImages.Food.id, link: '#food' },
-        { number: '02', title: 'Space', image: pillarImages.Space.id, link: '#space' },
-        { number: '03', title: 'Nature', image: pillarImages.Nature.id, link: '#nature' },
-        { number: '04', title: 'Workshop', image: pillarImages.Workshop.id, link: '#workshop' },
+        { number: '01', title: 'Food', image: pillarImages.Food.id, link: '/food' },
+        { number: '02', title: 'Space', image: pillarImages.Space.id, link: '/space' },
+        { number: '03', title: 'Nature', image: pillarImages.Nature.id, link: '/nature' },
+        { number: '04', title: 'Workshop', image: pillarImages.Workshop.id, link: '/workshop' },
       ],
       featureLabel: 'Featured · Nature',
       featureTitle: 'The quiet art of forest bathing',

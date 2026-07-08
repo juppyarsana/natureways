@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= pillar.name %> — NatureWays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <%- include('partials/nav', { siteSettings: siteSettings }) %>
+
+  <!-- ── Pillar Hero ────────────────────────── -->
+  <section class="pillar-hero">
+    <% if (pillar.heroImage) { %>
+      <div class="pillar-hero__image">
+        <img src="<%= mediaUrl(pillar.heroImage) %>" alt="<%= pillar.heroImage.alternativeText || '' %>" />
+      </div>
+    <% } %>
+    <div class="container container--narrow pillar-hero__content">
+      <span class="label">What we explore</span>
+      <div class="divider"></div>
+      <h1 class="serif-lg"><%= pillar.name %></h1>
+      <% if (pillar.description) { %>
+        <p class="body-text"><%= pillar.description %></p>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- ── Articles ───────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <span class="label">From the journal</span>
+          <h2 class="serif-md">Stories in <%= pillar.name %></h2>
+        </div>
+      </div>
+      <% if (articles.length === 0) { %>
+        <p class="body-text">No stories published in this section yet — check back soon.</p>
+      <% } else { %>
+        <div class="articles-grid">
+          <% articles.forEach(function(article) { %>
+            <a href="/articles/<%= article.slug %>" class="article-card reveal">
+              <% if (article.coverImage) { %>
+                <div class="article-card__image">
+                  <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage.alternativeText || '' %>" />
+                </div>
+              <% } %>
+              <div class="article-card__meta">
+                <span class="article-card__category"><%= article.pillar ? article.pillar.name : '' %></span>
+                <span class="article-card__dot"></span>
+                <span class="article-card__date"><%= new Date(article.publishDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) %></span>
+              </div>
+              <h3 class="article-card__title"><%= article.title %></h3>
+              <p class="article-card__excerpt"><%= article.excerpt %></p>
+            </a>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <%- include('partials/footer', { siteSettings: siteSettings }) %>
+
+  <!-- ── Scripts ────────────────────────────── -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

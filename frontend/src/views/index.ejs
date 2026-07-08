@@ -60,7 +60,7 @@
       </div>
       <div class="pillars-grid">
         <% homepage.pillars.forEach(function(pillar) { %>
-          <a class="pillar reveal" id="<%= pillar.link.replace('#', '') %>" href="<%= pillar.link %>">
+          <a class="pillar reveal" href="<%= pillar.link %>">
             <img src="<%= mediaUrl(pillar.image) %>" alt="<%= pillar.image.alternativeText || '' %>" />
             <div class="pillar__overlay">
               <span class="pillar__label"><%= pillar.number %></span>
@@ -103,7 +103,7 @@
       </div>
       <div class="articles-grid">
         <% homepage.recentArticles.forEach(function(article) { %>
-          <div class="article-card reveal">
+          <a href="/articles/<%= article.slug %>" class="article-card reveal">
             <div class="article-card__image">
               <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage.alternativeText || '' %>" />
             </div>
@@ -114,7 +114,7 @@
             </div>
             <h3 class="article-card__title"><%= article.title %></h3>
             <p class="article-card__excerpt"><%= article.excerpt %></p>
-          </div>
+          </a>
         <% }); %>
       </div>
     </div>
