@@ -366,6 +366,7 @@
     /* ── Section shared ───────────────────────────── */
     .section {
       padding: 100px 0;
+      scroll-margin-top: 100px; /* offsets the fixed nav so anchor jumps don't land under it */
     }
 
     .section--linen {

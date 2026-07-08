@@ -159,10 +159,13 @@ async function seed(strapi) {
       siteName: 'NatureWays',
       tagline: 'Journeys That Realign',
       navLinks: [
-        { label: 'Food', url: '#food' },
-        { label: 'Space', url: '#space' },
-        { label: 'Nature', url: '#nature' },
-        { label: 'Workshop', url: '#workshop' },
+        // Food/Space/Nature/Workshop don't have dedicated pages yet, so they
+        // scroll to the homepage's pillars section instead of a per-topic
+        // anchor -- see DEPLOY.md/CLAUDE.md "not built yet" for the real pages.
+        { label: 'Food', url: '#pillars' },
+        { label: 'Space', url: '#pillars' },
+        { label: 'Nature', url: '#pillars' },
+        { label: 'Workshop', url: '#pillars' },
         { label: 'About', url: '#about' },
         { label: 'Contact', url: '#contact' },
       ],
