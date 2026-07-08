@@ -1,0 +1,15 @@
+  <!-- ── Navigation ──────────────────────── -->
+  <nav id="site-nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo__name"><%= siteSettings.siteName %></span>
+      <span class="nav-logo__tagline"><%= siteSettings.tagline %></span>
+    </a>
+    <ul class="nav-links">
+      <% siteSettings.navLinks.forEach(function(link) { %>
+        <li><a href="<%= link.url %>"><%= link.label %></a></li>
+      <% }); %>
+    </ul>
+    <div class="nav-right">
+      <span class="label">natureways.id</span>
+    </div>
+  </nav>

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_homepage_pillars",
+  "info": {
+    "displayName": "Pillar",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

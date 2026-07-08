@@ -1,0 +1,107 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage",
+    "description": "Section-by-section content for the natureways.id homepage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroEyebrow": {
+      "type": "string"
+    },
+    "heroTitleLine1": {
+      "type": "string"
+    },
+    "heroTitleLine2": {
+      "type": "string"
+    },
+    "heroTitleEmphasis": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "heroBody": {
+      "type": "text"
+    },
+    "heroCtaLabel": {
+      "type": "string"
+    },
+    "heroCtaLink": {
+      "type": "string"
+    },
+    "tickerItems": {
+      "type": "component",
+      "component": "shared.ticker-item",
+      "repeatable": true
+    },
+    "pillars": {
+      "type": "component",
+      "component": "homepage.pillar",
+      "repeatable": true
+    },
+    "featureLabel": {
+      "type": "string"
+    },
+    "featureTitle": {
+      "type": "string"
+    },
+    "featureBody": {
+      "type": "text"
+    },
+    "featureCtaLabel": {
+      "type": "string"
+    },
+    "featureImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "featureArticle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "philosophyQuote": {
+      "type": "text"
+    },
+    "philosophyAttribution": {
+      "type": "string"
+    },
+    "workshopLabel": {
+      "type": "string"
+    },
+    "workshopTitle": {
+      "type": "string"
+    },
+    "workshopBody": {
+      "type": "text"
+    },
+    "workshopCtaLabel": {
+      "type": "string"
+    },
+    "workshopImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "journalImages": {
+      "type": "component",
+      "component": "shared.journal-image",
+      "repeatable": true
+    },
+    "recentArticles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    }
+  }
+}

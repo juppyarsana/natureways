@@ -1,0 +1,15 @@
+hero.jpg https://images.unsplash.com/photo-1476231682828-37e571bc172f?w=1200&q=70
+pillar-food.jpg https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=65
+pillar-space.jpg https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=600&q=65
+pillar-nature.jpg https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=65
+pillar-workshop.jpg https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=65
+feature-forest-bathing.jpg https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1000&q=70
+article-seasonal-recipe.jpg https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=700&q=65
+article-architecture.jpg https://images.unsplash.com/photo-1502780402662-acc01917949e?w=700&q=65
+article-slow-travel.jpg https://images.unsplash.com/photo-1472396961693-142e6e269027?w=700&q=65
+workshop-cta.jpg https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1000&q=65
+journal-1.jpg https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=60
+journal-2.jpg https://images.unsplash.com/photo-1501854140801-50d01698950b?w=500&q=60
+journal-3.jpg https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=500&q=60
+journal-4.jpg https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=500&q=60
+journal-5.jpg https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=60

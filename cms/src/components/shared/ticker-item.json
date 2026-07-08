@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_ticker_items",
+  "info": {
+    "displayName": "Ticker Item",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

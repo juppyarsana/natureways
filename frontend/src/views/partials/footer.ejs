@@ -1,0 +1,44 @@
+  <!-- ── Footer ─────────────────────────────── -->
+  <footer id="contact">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name"><%= siteSettings.siteName %></div>
+        <div class="footer__brand-tagline"><%= siteSettings.tagline %></div>
+        <p class="footer__brand-desc">
+          <%= siteSettings.footerBrandDesc %>
+        </p>
+      </div>
+      <div>
+        <p class="footer__col-title">Explore</p>
+        <ul class="footer__links">
+          <% siteSettings.footerExploreLinks.forEach(function(link) { %>
+            <li><a href="<%= link.url %>"><%= link.label %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">About</p>
+        <ul class="footer__links">
+          <% siteSettings.footerAboutLinks.forEach(function(link) { %>
+            <li><a href="<%= link.url %>"><%= link.label %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Connect</p>
+        <ul class="footer__links">
+          <% siteSettings.footerConnectLinks.forEach(function(link) { %>
+            <li><a href="<%= link.url %>"><%= link.label %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy"><%= siteSettings.footerCopyrightText %></span>
+      <div class="footer__socials">
+        <% siteSettings.socialLinks.forEach(function(link) { %>
+          <a href="<%= link.url %>"><%= link.label %></a>
+        <% }); %>
+      </div>
+    </div>
+  </footer>

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_journal_images",
+  "info": {
+    "displayName": "Journal Image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NatureWays — Journeys That Realign</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <%- include('partials/nav', { siteSettings: siteSettings }) %>
+
+  <!-- ── Hero ────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__image-panel">
+      <img
+        src="<%= mediaUrl(homepage.heroImage) %>"
+        alt="<%= homepage.heroImage.alternativeText || '' %>"
+      />
+    </div>
+    <div class="hero__text-panel">
+      <p class="label hero__eyebrow"><%= homepage.heroEyebrow %></p>
+      <h1 class="serif-hero hero__title">
+        <%= homepage.heroTitleLine1 %><br />
+        <%= homepage.heroTitleLine2 %><br />
+        <em><%= homepage.heroTitleEmphasis %></em>
+      </h1>
+      <div class="divider"></div>
+      <p class="body-text hero__body">
+        <%= homepage.heroBody %>
+      </p>
+      <a href="<%= homepage.heroCtaLink %>" class="hero__cta"><%= homepage.heroCtaLabel %></a>
+    </div>
+    <span class="hero__scroll-hint">Scroll</span>
+  </section>
+
+  <!-- ── Ticker ───────────────────────────── -->
+  <div class="ticker">
+    <div class="ticker__inner">
+      <% homepage.tickerItems.forEach(function(item) { %>
+        <span class="ticker__item"><%= item.label %></span>
+      <% }); %>
+      <!-- duplicate for seamless loop -->
+      <% homepage.tickerItems.forEach(function(item) { %>
+        <span class="ticker__item"><%= item.label %></span>
+      <% }); %>
+    </div>
+  </div>
+
+  <!-- ── Pillars ───────────────────────────── -->
+  <section class="section" id="pillars">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <span class="label">What we explore</span>
+          <h2 class="serif-md">Four pillars of living with nature</h2>
+        </div>
+        <a href="#" class="section__link">View all</a>
+      </div>
+      <div class="pillars-grid">
+        <% homepage.pillars.forEach(function(pillar) { %>
+          <a class="pillar reveal" id="<%= pillar.link.replace('#', '') %>" href="<%= pillar.link %>">
+            <img src="<%= mediaUrl(pillar.image) %>" alt="<%= pillar.image.alternativeText || '' %>" />
+            <div class="pillar__overlay">
+              <span class="pillar__label"><%= pillar.number %></span>
+              <span class="pillar__title"><%= pillar.title %></span>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature: Forest Bathing ─────────── -->
+  <section class="feature section--linen">
+    <div class="feature__image reveal">
+      <img
+        src="<%= mediaUrl(homepage.featureImage) %>"
+        alt="<%= homepage.featureImage.alternativeText || '' %>"
+      />
+    </div>
+    <div class="feature__content reveal">
+      <span class="label"><%= homepage.featureLabel %></span>
+      <div class="divider"></div>
+      <h2 class="serif-lg"><%= homepage.featureTitle %></h2>
+      <p class="body-text">
+        <%= homepage.featureBody %>
+      </p>
+      <a href="#" class="text-link"><%= homepage.featureCtaLabel %></a>
+    </div>
+  </section>
+
+  <!-- ── Latest Articles ───────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <span class="label">From the journal</span>
+          <h2 class="serif-md">Recent stories</h2>
+        </div>
+        <a href="#" class="section__link">All articles</a>
+      </div>
+      <div class="articles-grid">
+        <% homepage.recentArticles.forEach(function(article) { %>
+          <div class="article-card reveal">
+            <div class="article-card__image">
+              <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage.alternativeText || '' %>" />
+            </div>
+            <div class="article-card__meta">
+              <span class="article-card__category"><%= article.pillar ? article.pillar.name : '' %></span>
+              <span class="article-card__dot"></span>
+              <span class="article-card__date"><%= new Date(article.publishDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) %></span>
+            </div>
+            <h3 class="article-card__title"><%= article.title %></h3>
+            <p class="article-card__excerpt"><%= article.excerpt %></p>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Philosophy Quote ───────────────────── -->
+  <section class="philosophy">
+    <div class="philosophy__content reveal">
+      <div class="philosophy__mark">"</div>
+      <p class="philosophy__quote">
+        <%= homepage.philosophyQuote %>
+      </p>
+      <span class="philosophy__attr"><%= homepage.philosophyAttribution %></span>
+    </div>
+  </section>
+
+  <!-- ── Workshop CTA ───────────────────────── -->
+  <section class="workshop-cta" id="workshop-section">
+    <div class="workshop-cta__image">
+      <img
+        src="<%= mediaUrl(homepage.workshopImage) %>"
+        alt="<%= homepage.workshopImage.alternativeText || '' %>"
+      />
+    </div>
+    <div class="workshop-cta__content reveal">
+      <span class="label"><%= homepage.workshopLabel %></span>
+      <div class="divider" style="background: var(--olive);"></div>
+      <h2 class="serif-lg"><%= homepage.workshopTitle %></h2>
+      <p class="body-text">
+        <%= homepage.workshopBody %>
+      </p>
+      <a href="#" class="btn-light"><%= homepage.workshopCtaLabel %></a>
+    </div>
+  </section>
+
+  <!-- ── Journal / Instagram Grid ──────────── -->
+  <section class="section" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="section__header reveal">
+        <div class="section__header-left">
+          <span class="label">Field notes</span>
+          <h2 class="serif-md">Moments from the wild</h2>
+        </div>
+        <a href="#" class="section__link">@naturewaysid</a>
+      </div>
+    </div>
+    <div class="journal-grid">
+      <% homepage.journalImages.forEach(function(item) { %>
+        <div class="journal-item"><img src="<%= mediaUrl(item.image) %>" alt="<%= item.alt || '' %>" /></div>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────── -->
+  <%- include('partials/footer', { siteSettings: siteSettings }) %>
+
+  <!-- ── Scripts ────────────────────────────── -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
