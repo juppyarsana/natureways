@@ -215,7 +215,7 @@ async function seed(strapi) {
       heroBody:
         'NatureWays is a sanctuary for those seeking to slow down, reconnect, and rediscover the quiet intelligence of the natural world.',
       heroCtaLabel: 'Explore our world',
-      heroCtaLink: '/nature',
+      heroCtaLink: '#pillars',
       tickerItems: [
         { label: 'Forest Bathing' },
         { label: 'Slow Travel' },
