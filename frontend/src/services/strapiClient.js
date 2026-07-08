@@ -1,6 +1,7 @@
 'use strict';
 
 const STRAPI_URL = process.env.STRAPI_URL || 'http://localhost:1337';
+const STRAPI_PUBLIC_URL = process.env.STRAPI_PUBLIC_URL || STRAPI_URL;
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN || '';
 
 async function strapiFetch(path) {
@@ -46,7 +47,7 @@ function getSiteSettings() {
 
 function mediaUrl(media) {
   if (!media || !media.url) return '';
-  return media.url.startsWith('http') ? media.url : `${STRAPI_URL}${media.url}`;
+  return media.url.startsWith('http') ? media.url : `${STRAPI_PUBLIC_URL}${media.url}`;
 }
 
 module.exports = { getHomepage, getSiteSettings, mediaUrl };

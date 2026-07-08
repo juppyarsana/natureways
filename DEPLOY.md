@@ -103,9 +103,12 @@ Edit to:
 ```
 PORT=3000
 STRAPI_URL=http://localhost:1337
+STRAPI_PUBLIC_URL=https://cms.natureways.id
 STRAPI_API_TOKEN=
 ```
 (We'll fill in `STRAPI_API_TOKEN` in Phase 6 after Strapi is running — locking the frontend to a scoped read-only token instead of relying on the public role, same idea we used locally but worth tightening for production.)
+
+`STRAPI_URL` is the internal address the Express server uses to fetch data from Strapi (server-to-server, over localhost — fine since Nginx puts both apps on the same box). `STRAPI_PUBLIC_URL` is different: it's used to build `<img src="...">` URLs that get sent to visitors' browsers, so it must be the public CMS domain — if left as `localhost`, every visitor's browser will try to fetch images from `localhost` on their own machine (broken images, and Chrome will prompt for "Local Network Access" permission).
 
 ---
 
