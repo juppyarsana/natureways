@@ -618,7 +618,14 @@
 
     /* ── Pillar landing page ──────────────────────── */
     .pillar-hero {
-      padding: 160px 0 48px;
+      padding: 160px 0 24px;
+    }
+
+    /* Tighter than the default .section top padding -- this section always
+       follows .pillar-hero directly, so the usual 100px would stack with
+       .pillar-hero's own bottom padding and read as an empty gap. */
+    .pillar-hero + .section {
+      padding-top: 32px;
     }
 
     .pillar-hero__image {
