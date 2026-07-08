@@ -130,7 +130,7 @@ First run auto-seeds all content (matching the original static copy) and grants 
 
 ### Not built yet (documented direction only)
 
-- **VPS deployment**: both processes under pm2/systemd, Nginx reverse-proxying the site and admin, Let's Encrypt TLS, SQLite persisted in backups (Postgres only if multi-editor concurrency is needed), local `/uploads` media (S3/R2/Spaces later if the photo library grows large).
+- **VPS deployment**: step-by-step guide in [DEPLOY.md](DEPLOY.md) — pm2 + Nginx + Let's Encrypt, `natureways.id` (site) and `cms.natureways.id` (Strapi admin) as separate hostnames. SQLite persisted in backups (Postgres only if multi-editor concurrency is needed), local `/uploads` media (S3/R2/Spaces later if the photo library grows large).
 - **Payment gateway (Midtrans/Xendit)**, for paid workshops: future `workshop` + `booking`/`order` Strapi collection types, plus Express routes `POST /workshop/:id/checkout` and `POST /webhooks/midtrans`. This is exactly why Express (not static hosting) was chosen — no architecture change needed when this gets built, only additive routes/content types.
 
 ---
@@ -184,5 +184,5 @@ Sections in order:
 - [ ] About page
 - [ ] Workshop / Events page
 - [ ] Contact page
-- [ ] VPS deployment (pm2 + Nginx + TLS — see Architecture section above)
+- [ ] VPS deployment — guide ready at [DEPLOY.md](DEPLOY.md), not yet run against a live server
 - [ ] Payment gateway integration for paid workshops (Midtrans/Xendit — see Architecture section above)

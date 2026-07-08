@@ -12,4 +12,18 @@
     <div class="nav-right">
       <span class="label">natureways.id</span>
     </div>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
   </nav>
+
+  <!-- ── Mobile menu panel ─────────────────── -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__links">
+      <% siteSettings.navLinks.forEach(function(link) { %>
+        <li><a href="<%= link.url %>"><%= link.label %></a></li>
+      <% }); %>
+    </ul>
+  </div>

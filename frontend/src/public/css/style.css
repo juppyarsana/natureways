@@ -100,6 +100,21 @@
       transition: all 0.3s ease;
     }
 
+    /* Legibility scrim behind the logo/links when nav is transparent
+       (unscrolled) and sitting directly on top of a photo. */
+    nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to bottom, rgba(15, 26, 8, 0.32), rgba(15, 26, 8, 0));
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    nav.scrolled::before { opacity: 0; }
+
     .nav-logo {
       display: flex;
       flex-direction: column;
@@ -111,6 +126,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       color: var(--deep-pine);
+      transition: color 0.3s ease;
     }
 
     .nav-logo__tagline {
@@ -118,6 +134,7 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--olive);
+      transition: color 0.3s ease;
     }
 
     .nav-links {
@@ -141,6 +158,89 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 6px;
+    }
+
+    .nav-right .label { transition: color 0.3s ease; }
+
+    /* While nav is transparent over the hero photo, switch to light text
+       (paired with the nav::before scrim above) so the logo/links/toggle
+       stay legible regardless of what's behind them. Once scrolled, the
+       frosted light background returns text to the normal dark palette. */
+    nav:not(.scrolled) .nav-logo__name,
+    nav:not(.scrolled) .nav-right .label {
+      color: var(--ivory);
+    }
+
+    nav:not(.scrolled) .nav-logo__tagline {
+      color: var(--sage);
+    }
+
+    nav:not(.scrolled) .nav-links a {
+      color: var(--ivory);
+    }
+
+    /* ── Mobile nav toggle + menu panel ───────────── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 26px;
+      height: 20px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .nav-toggle__bar {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--ivory);
+      transition: background 0.3s ease, transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    nav.scrolled .nav-toggle__bar { background: var(--forest); }
+
+    .nav-toggle.open .nav-toggle__bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-toggle.open .nav-toggle__bar:nth-child(2) { opacity: 0; }
+    .nav-toggle.open .nav-toggle__bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ivory);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .mobile-menu__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .mobile-menu__links a {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      color: var(--deep-pine);
     }
 
     /* ── Hero ─────────────────────────────────────── */
@@ -342,6 +442,7 @@
       color: var(--ivory);
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      overflow-wrap: break-word;
     }
 
     /* ── Feature / Highlight ──────────────────────── */
@@ -703,8 +804,16 @@
       .hero { grid-template-columns: 1fr; height: auto; }
       .hero__image-panel { height: 60vw; }
       .hero__text-panel { padding: 60px 24px 60px; }
+      /* Scroll hint is positioned for a full 100vh hero; on the shorter
+         auto-height mobile hero it lands on top of the CTA button. */
+      .hero__scroll-hint { display: none; }
 
       .pillars-grid { grid-template-columns: 1fr 1fr; }
+      /* Tighter padding + smaller title so a long single-word title like
+         "Workshop" fits its tile without being clipped by .pillar's
+         overflow:hidden (overflow-wrap alone isn't enough at this width). */
+      .pillar__overlay { padding: 20px 16px; }
+      .pillar__title { font-size: 1.05rem; letter-spacing: 0.03em; }
 
       .feature { grid-template-columns: 1fr; }
       .feature__content { padding: 48px 24px; }
@@ -719,4 +828,6 @@
       .footer__grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 
       .nav-links { display: none; }
+      .nav-right { display: none; }
+      .nav-toggle { display: flex; }
     }
