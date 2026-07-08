@@ -246,6 +246,7 @@ async function seed(strapi) {
       workshopBody:
         'From road trip immersions to private forest sessions — our workshops are designed to shift your relationship with the world around you. No agenda. Just presence.',
       workshopCtaLabel: 'View upcoming events',
+      workshopCtaLink: '/workshop',
       workshopImage: workshopImage.id,
       journalImages: [
         { image: journalImages[0].id, alt: 'Nature moment 1' },

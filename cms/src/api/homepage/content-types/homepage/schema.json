@@ -88,6 +88,9 @@
     "workshopCtaLabel": {
       "type": "string"
     },
+    "workshopCtaLink": {
+      "type": "string"
+    },
     "workshopImage": {
       "type": "media",
       "multiple": false,
