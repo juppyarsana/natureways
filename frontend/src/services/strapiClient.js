@@ -27,7 +27,8 @@ const HOMEPAGE_POPULATE =
   '&populate[workshopImage]=true' +
   '&populate[journalImages][populate][image]=true' +
   '&populate[recentArticles][populate][coverImage]=true' +
-  '&populate[recentArticles][populate][pillar]=true';
+  '&populate[recentArticles][populate][pillar]=true' +
+  '&populate[featureArticle]=true';
 
 const SITE_SETTINGS_POPULATE =
   'populate[logoMark]=true' +

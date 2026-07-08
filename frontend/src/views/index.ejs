@@ -86,7 +86,9 @@
       <p class="body-text">
         <%= homepage.featureBody %>
       </p>
-      <a href="#" class="text-link"><%= homepage.featureCtaLabel %></a>
+      <% if (homepage.featureArticle) { %>
+        <a href="/articles/<%= homepage.featureArticle.slug %>" class="text-link"><%= homepage.featureCtaLabel %></a>
+      <% } %>
     </div>
   </section>
 
