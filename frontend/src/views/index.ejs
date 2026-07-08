@@ -16,7 +16,7 @@
     <div class="hero__image-panel">
       <img
         src="<%= mediaUrl(homepage.heroImage) %>"
-        alt="<%= homepage.heroImage.alternativeText || '' %>"
+        alt="<%= homepage.heroImage ? (homepage.heroImage.alternativeText || '') : '' %>"
       />
     </div>
     <div class="hero__text-panel">
@@ -60,7 +60,7 @@
       <div class="pillars-grid">
         <% homepage.pillars.forEach(function(pillar) { %>
           <a class="pillar reveal" href="<%= pillar.link %>">
-            <img src="<%= mediaUrl(pillar.image) %>" alt="<%= pillar.image.alternativeText || '' %>" />
+            <img src="<%= mediaUrl(pillar.image) %>" alt="<%= pillar.image ? (pillar.image.alternativeText || '') : '' %>" />
             <div class="pillar__overlay">
               <span class="pillar__label"><%= pillar.number %></span>
               <span class="pillar__title"><%= pillar.title %></span>
@@ -76,7 +76,7 @@
     <div class="feature__image reveal">
       <img
         src="<%= mediaUrl(homepage.featureImage) %>"
-        alt="<%= homepage.featureImage.alternativeText || '' %>"
+        alt="<%= homepage.featureImage ? (homepage.featureImage.alternativeText || '') : '' %>"
       />
     </div>
     <div class="feature__content reveal">
@@ -106,7 +106,7 @@
         <% homepage.recentArticles.forEach(function(article) { %>
           <a href="/articles/<%= article.slug %>" class="article-card reveal">
             <div class="article-card__image">
-              <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage.alternativeText || '' %>" />
+              <img src="<%= mediaUrl(article.coverImage) %>" alt="<%= article.coverImage ? (article.coverImage.alternativeText || '') : '' %>" />
             </div>
             <div class="article-card__meta">
               <span class="article-card__category"><%= article.pillar ? article.pillar.name : '' %></span>
@@ -137,7 +137,7 @@
     <div class="workshop-cta__image">
       <img
         src="<%= mediaUrl(homepage.workshopImage) %>"
-        alt="<%= homepage.workshopImage.alternativeText || '' %>"
+        alt="<%= homepage.workshopImage ? (homepage.workshopImage.alternativeText || '') : '' %>"
       />
     </div>
     <div class="workshop-cta__content reveal">
