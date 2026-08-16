@@ -535,6 +535,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     workshopBody: Schema.Attribute.Text;
     workshopCtaLabel: Schema.Attribute.String;
+    workshopCtaLink: Schema.Attribute.String;
     workshopImage: Schema.Attribute.Media<'images'>;
     workshopLabel: Schema.Attribute.String;
     workshopTitle: Schema.Attribute.String;
