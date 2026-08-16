@@ -191,12 +191,40 @@ The config already includes both the port-80→443 redirect and the two HTTPS se
 
 ## Redeploying future changes
 
+This VPS has only ~960MB RAM, so building Strapi's admin panel in place is slow and OOM-prone. Build **in a tmux session with a memory bump**, and — critically — **do not restart/start `natureways-cms` in pm2 until the build has fully finished**. Starting it against a half-written `cms/build/` is exactly what serves a broken "Not Found" admin panel (happened on 2026-08-17; cost real time to diagnose).
+
 ```bash
 cd /var/www/natureways
 git pull
-cd cms && npm install && npm run build
+
+# stop the CMS before building (frees a little RAM, and avoids any chance
+# of it serving mid-build files)
+pm2 stop natureways-cms
+
+cd cms
+tmux new -s build
+# --- inside tmux ---
+npm install
+NODE_OPTIONS="--max-old-space-size=3072" npm run build
+# ctrl+b then d to detach once it's running — this step alone can take
+# 20-30+ minutes on this box (swap thrashing at ~960MB RAM is normal,
+# not a hang — confirm it's alive via `ps aux | grep strapi` and check
+# the CPU time column is still climbing between checks)
+```
+
+**Wait for the build to fully exit** — reattach with `tmux attach -t build` and confirm you see a shell prompt back (not a spinner), AND `ps aux | grep strapi` shows no `strapi build` process left. Only then:
+
+```bash
 cd ../frontend && npm install
-pm2 restart all
+
+pm2 start natureways-cms   # or: pm2 restart all
+```
+
+Give Strapi ~1 minute to cold-boot, then confirm before checking the site:
+```bash
+pm2 logs natureways-cms --lines 30 --nostream   # look for "Strapi started successfully"
+curl -I http://localhost:1337/api/homepage       # expect 200
+curl -I http://localhost:3000                    # expect 200
 ```
 
 ## Notes / things worth doing next, not required to launch

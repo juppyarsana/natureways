@@ -171,18 +171,19 @@ Sections in order:
 
 - **Style reference:** [Lean Timms](https://leantimms.com) — minimal, editorial, large photography, sparse typography, left-aligned nav.
 - **Brand style:** Kinfolk magazine aesthetic.
-- **Logo:** NatureWays wordmark with leaf/hands icon (see `design guideline.jpeg`).
+- **Logo:** NatureWays wordmark with leaf/hands icon (see `design guideline.jpeg`; extracted PNG at `cms/seed-assets/logo natureways.png`).
 
 ---
 
 ## What's Next (suggested)
 
 - [x] CMS integration — Strapi + Express/EJS, local dev verified (parity + live-edit loop)
+- [x] VPS deployment — live at `natureways.id` (site) / `cms.natureways.id` (admin), per [DEPLOY.md](DEPLOY.md)
+- [x] Strapi admin panel rebranded to NatureWays (login/sidebar/settings text + logo, promo banners hidden) — see `cms/src/admin/app.js` and `cms/config/admin.js`
 - [ ] Real photography + copy swap-in (client replaces the seeded Unsplash placeholders via Strapi's Media Library)
 - [ ] Inner page template (article/category layout) — `article`, `pillar`, `subcategory` content types are already schema-ready for this
 - [ ] Mobile hamburger menu
 - [ ] About page
 - [ ] Workshop / Events page
 - [ ] Contact page
-- [ ] VPS deployment — guide ready at [DEPLOY.md](DEPLOY.md), not yet run against a live server
 - [ ] Payment gateway integration for paid workshops (Midtrans/Xendit — see Architecture section above)
